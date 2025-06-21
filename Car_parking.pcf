@@ -1,0 +1,9 @@
+set_io --warn-no-port clk 94
+set_io --warn-no-port reset 33
+
+set_io --warn-no-port led_counter[2] 3  #-- output
+set_io --warn-no-port led_counter[1] 2  #-- output
+set_io --warn-no-port led_counter[0] 1  #-- output
+
+set_io --warn-no-port a_btn 31  # input
+set_io --warn-no-port b_btn 32  # input
