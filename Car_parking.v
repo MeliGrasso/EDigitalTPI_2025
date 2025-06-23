@@ -6,7 +6,8 @@ module Car_parking (
     output wire [2:0] led_counter
 );
     wire inv_reset_btn, inv_a_btn, inv_b_btn;
-    assign inv_reset_btn = ~reset;
+    //assign inv_reset_btn = ~reset; // Para el test_bench dejar esto comentado.
+    assign inv_reset_btn = reset; // Para la FPGA dejar esto comentado.
     assign inv_a_btn = ~a_btn;
     assign inv_b_btn = ~b_btn;
 

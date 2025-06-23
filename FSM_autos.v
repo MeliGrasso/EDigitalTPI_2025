@@ -23,15 +23,16 @@ module FSM_autos (
             carOut <= 1'b0;
         end else begin
             state <= next_state;
-            carIn  <= 1'b0;
-            carOut <= 1'b0;
             // Completa la secuencia.
-            if (next_state == 3'b000) begin
-                if (state == 3'b011 && sensor_a == 1'b0 && sensor_b == 1'b0) begin // Está entrando
-                    carIn <= 1'b1; // 00 -> 10 -> 11 -> 01 -> 00
-                end else if (state == 3'b110 && sensor_a == 1'b0 && sensor_b == 1'b0) begin // Está saliendo
-                    carOut <= 1'b1; // 00 -> 01 -> 11 -> 10 -> 00
-                end
+            if (state == 3'b011 && next_state == 3'b000 && sensor_a == 1'b0 && sensor_b == 1'b0) begin
+                carIn <= 1'b1;
+            end else begin
+                carIn <= 1'b0;
+            end
+            if (state == 3'b110 && next_state == 3'b000 && sensor_a == 1'b0 && sensor_b == 1'b0) begin
+                carOut <= 1'b1;
+            end else begin
+                carOut <= 1'b0;
             end
         end
     end
